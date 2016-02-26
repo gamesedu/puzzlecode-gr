@@ -162,7 +162,7 @@
 
         <!-- BEGIN: column -->
         <div class="span12">
-
+<!--
         <div class="alert alert-block">
           <button type="button" class="close" data-dismiss="alert">&times;</button>
           <p><strong>Warning</strong>: this game is incomplete, and under construction.
@@ -170,7 +170,9 @@
             <a target="_blank" href="https://docs.google.com/forms/d/1cs8d6XNmHsbjQRN15LDIQcof8KWrVlpVYFCgZIDXKw4/viewform">
              Please give me anonymous feedback by completing this short survey</a>
              (link opens in a new window).</p>
-        </div><!-- END: message box -->
+        </div>
+        -->
+        <!-- END: message box -->
 
         <!-- this div will only be visible if the player has at least two
          levels to choose from -->
@@ -207,17 +209,17 @@
           <div style="clear:both">
             <p>
               <div class="btn-group">
-                <button class="btn menu-button" id="pauseplay">Run!</button>
-                <button class="btn menu-button" id="stepButton">Step</button>
+                <button class="btn menu-button" id="pauseplay">ΕΚΤΕΛΕΣΗ!</button>
+                <button class="btn menu-button" id="stepButton">ΒΗΜΑ</button>
                 <button class="btn menu-button" id="restart">Reset</button>
-                <a class="btn menu-button" id="speedText">Animation speed</a>
+                <a class="btn menu-button" id="speedText">ΤΑΧΥΤΗΤΑ ΚΙΝΗΣΕΩΝ</a>
                   <a class="btn dropdown-toggle" data-toggle="dropdown" href="#"><span class="caret"></span></a>
                   <ul class="dropdown-menu">
-                    <li><a href="javascript: setSpeed(PlaySpeed.SUPER_SLOW)">Super slow</a></li>
-                    <li><a href="javascript: setSpeed(PlaySpeed.SLOW)">Slow</a></li>
-                    <li><a href="javascript: setSpeed(PlaySpeed.NORMAL)">Normal speed</a></li>
-                    <li><a href="javascript: setSpeed(PlaySpeed.FAST)">Fast</a></li>
-                    <li><a href="javascript: setSpeed(PlaySpeed.SUPER_FAST)">Super fast</a></li>
+                    <li><a href="javascript: setSpeed(PlaySpeed.SUPER_SLOW)">ΠΟΛΥ ΑΡΓΑ</a></li>
+                    <li><a href="javascript: setSpeed(PlaySpeed.SLOW)">ΑΡΓΑ</a></li>
+                    <li><a href="javascript: setSpeed(PlaySpeed.NORMAL)">ΚΑΝΟΝΙΚΗ</a></li>
+                    <li><a href="javascript: setSpeed(PlaySpeed.FAST)">ΓΡΗΓΟΡΗ</a></li>
+                    <li><a href="javascript: setSpeed(PlaySpeed.SUPER_FAST)">ΠΟΛΥ ΓΡΗΓΟΡΗ</a></li>
                   </ul>
               </div>
               <div class="btn-group">
@@ -226,7 +228,7 @@
                   type="button"
                   id="helpButton"
                   onClick="TUTORIAL.setup.startTutorialPrompt.activate()">
-                  Help</button>
+                  HELP</button>
 
                 <a
                   href="#hintModal"
