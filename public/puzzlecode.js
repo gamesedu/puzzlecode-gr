@@ -611,10 +611,10 @@ function compileTurn(tokens) {
     error = true
   } else {
     var direction = tokens[1]
-    if (direction == "left") {
+    if ((direction == "left")||(direction == "ΑΡ")||(direction == "ΑΡΙΣΤΕΡΑ")) {
       instruction = new PuzzleCodeInstruction(Opcode.TURN, Direction.LEFT)
       comment = newComment("")//Rotate to the left ↰")
-    } else if (direction == "right") {
+    } else if ((direction == "right")||(direction == "ΔΕ")||(direction == "ΔΕΞΙΑ")) {
       instruction = new PuzzleCodeInstruction(Opcode.TURN, Direction.RIGHT)
       comment = newComment("")//Rotate to the right ↱")
     } else {
@@ -712,11 +712,11 @@ function compileLine(line, lineIndex, labels) {
 
   var opcode = tokens[0]
   var result = undefined
-  if (opcode == "move") {
+  if ((opcode == "move")||(opcode == "ΜΠΡΟΣΤΑ")||(opcode == "ΜΠ")||(opcode == "ΚΙΝΗΣΟΥ")) {
     result = compileMove(tokens).concat([label])
-  } else if (opcode == "turn") {
+  } else if ((opcode == "turn")||(opcode == "ΣΤΡΙΨΕ")||(opcode == "ΣΤΡ")||(opcode == "ΣΤΡΟΦΗ")) {
     result = compileTurn(tokens).concat([label])
-  } else if (opcode == "goto") {
+  } else if ((opcode == "goto")||(opcode == "ΠΗΓΑΙΝΕ")) {
     result = compileGoto(tokens).concat([label])
   } else {
     comment = newErrorComment("'" + opcode + "' is not an instruction",
@@ -3348,8 +3348,8 @@ function puzzle_blocks() {
     },
 
     solutions: [
-      "move\nmove\nturn left\nmove\nmove\nturn right\nmove\nmove\nturn right\nmove\nmove",
-    ],
+      "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ",
+    ], //"move\nmove\nturn left\nmove\nmove\nturn right\nmove\nmove\nturn right\nmove\nmove",
     num_cols: 9,
     num_rows: 7,
     // BUG: this should be programming_bot_id, not index
@@ -3399,7 +3399,7 @@ function puzzle_torus() {
     ],
     constraints: [],
     solutions: [
-      "move\nmove\nmove\nmove\nmove\nmove\nmove\n",
+      "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\n",
     ],
     num_cols: 9,
     num_rows: 7,
@@ -3451,8 +3451,10 @@ function puzzle_traps() {
     ],
     constraints: [],
     solutions: [
-        "turn right\nmove\nmove\nturn right\nmove\nturn left\nmove\nmove\n"
-        + "move\nmove\nturn right\nmove\nmove\nmove\nmove\nmove"
+        "ΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\n"
+        + "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ",
+                //"turn right\nmove\nmove\nturn right\nmove\nturn left\nmove\nmove\n"
+        //+ "move\nmove\nturn right\nmove\nmove\nmove\nmove\nmove"
     ],
     num_cols: 9,
     num_rows: 7,
@@ -3593,7 +3595,8 @@ function puzzle_uturn() {
     constraints: [],
 
     solutions: [
-      "turn right\nturn right\nmove\nmove\nmove",
+       "ΣΤΡΙΨΕ ΔΕΞΙΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ",
+      //"turn right\nturn right\nmove\nmove\nmove",
     ],
     num_cols: 9,
     num_rows: 7,
@@ -3605,7 +3608,7 @@ function puzzle_uturn() {
         cellX: 4,
         cellY: 3,
         facing: Direction.RIGHT,
-        program: "turn right\nmove\nmove\nmove\n",
+        program:   "ΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\n", //"turn right\nmove\nmove\nmove\n",
       },
     ],
     coins: [
@@ -3684,7 +3687,8 @@ function puzzle_welcome() {
     constraints: [],
 
     solutions: [
-      "move\nmove\nmove\nturn left\nmove\nmove\nmove\nmove\n",
+       "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\n",
+       // "move\nmove\nmove\nturn left\nmove\nmove\nmove\nmove\n",
     ],
     num_cols: 9,
     num_rows: 7,
@@ -3696,7 +3700,8 @@ function puzzle_welcome() {
         cellX: 4,
         cellY: 4,
         facing: Direction.UP,
-        program: "move\nmove\nturn left\nmove\nmove\n",
+        program: "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\n",
+        //"move\nmove\nturn left\nmove\nmove\n",
       },
     ],
     coins: [
@@ -3786,10 +3791,10 @@ function puzzle_wrapAround() {
     ],
     constraints: [],
     solutions: [
-      _(["turn left", "turn left",
-       "move",
-       "turn right",
-       "move", "move", "move", "move", "move", "move"]).join("\n")
+      _(["ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ", "ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ",
+       "ΜΠΡΟΣΤΑ",
+       "ΣΤΡΙΨΕ ΔΕΞΙΑ",
+       "ΜΠΡΟΣΤΑ", "ΜΠΡΟΣΤΑ", "ΜΠΡΟΣΤΑ", "ΜΠΡΟΣΤΑ", "ΜΠΡΟΣΤΑ", "ΜΠΡΟΣΤΑ"]).join("\n")
     ],
     num_cols: 8,
     num_rows: 8,
@@ -3842,10 +3847,10 @@ function puzzle_zig_zag() {
     ],
     constraints: [],
     solutions: [
-        "move\nturn right\nmove\nturn left\nmove\nturn right\nmove\n"
-        + "turn left\nmove\nturn right\nmove\nturn left\nmove\nturn right\n"
-        + "move\nturn left\nmove\nturn right\nmove\nturn left\nmove\n"
-        + "turn right\nmove\n"
+        "ΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\n"
+        + "ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\n"
+        + "ΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΜΠΡΟΣΤΑ\n"
+        + "ΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\n"
     ],
     num_cols: 9,
     num_rows: 7,
@@ -3978,8 +3983,10 @@ function puzzle_coins_everywhere() {
     },
 
     solutions: [
-      "start:\nmove\nmove\nmove\nmove\nmove\nmove\nmove\nturn right\nmove\n" +
-      "turn left\ngoto start\n"
+   //   "start:\nmove\nmove\nmove\nmove\nmove\nmove\nmove\nturn right\nmove\n" +
+    //  "turn left\ngoto start\n"
+            "ΑΡΧΗ:\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\n" +
+      "ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n"
     ],
     num_cols: 9,
     num_rows: 7,
@@ -4137,7 +4144,8 @@ function puzzle_get_unstuck() {
     },
 
     solutions: [
-      "start: move\ngoto start\n",
+      //"start: move\ngoto start\n",
+      	  "ΑΡΧΗ: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n",
     ],
     num_cols: 9,
     num_rows: 7,
