@@ -711,12 +711,25 @@ function compileLine(line, lineIndex, labels) {
   }
 
   var opcode = tokens[0]
+    opcode=opcode.toUpperCase(); //added by j 20160226
   var result = undefined
-  if ((opcode == "move")||(opcode == "ΜΠΡΟΣΤΑ")||(opcode == "ΜΠ")||(opcode == "ΚΙΝΗΣΟΥ")) {
+  if ((opcode == "move")||(opcode == "ΜΠΡΟΣΤΑ")||(opcode == "ΜΠ")||(opcode == "ΚΙΝΗΣΟΥ")||(opcode == "ΜΠΡΟΣΤΆ")) {
     result = compileMove(tokens).concat([label])
   } else if ((opcode == "turn")||(opcode == "ΣΤΡΙΨΕ")||(opcode == "ΣΤΡ")||(opcode == "ΣΤΡΟΦΗ")) {
-    result = compileTurn(tokens).concat([label])
-  } else if ((opcode == "goto")||(opcode == "ΠΗΓΑΙΝΕ")) {
+    result = compileTurn(tokens).concat([label])//added by j 20160226
+  } else if ((opcode == "turnleft")||(opcode == "ΑΡΙΣΤΕΡΑ")||(opcode == "ΑΡ")||(opcode == "TL")||(opcode == "ΑΡΙΣΤΕΡΆ")) {//added by j 20160226
+    //result = compileTurn(tokens).concat([label])	
+	instruction = new PuzzleCodeInstruction(Opcode.TURN, Direction.LEFT)
+     comment = newComment("")//Rotate to the left ?")
+	result =  [instruction, comment,false]		 
+  }
+  else if ((opcode == "turnright")||(opcode == "ΔΕΞΙΑ")||(opcode == "ΔΕ")||(opcode == "TR")||(opcode == "ΔΕΞΙΆ")) {//added by j 20160226
+    //result = compileTurn(tokens).concat([label])	
+	instruction = new PuzzleCodeInstruction(Opcode.TURN, Direction.RIGHT)
+     comment = newComment("")//Rotate to the right ?")
+	result =  [instruction, comment,false]	  
+  }
+  else if ((opcode == "goto")||(opcode == "ΠΗΓΑΙΝΕ")||(opcode == "ΠΉΓΑΙΝΕ")) {
     result = compileGoto(tokens).concat([label])
   } else {
     comment = newErrorComment("'" + opcode + "' is not an instruction",
