@@ -3998,8 +3998,8 @@ function puzzle_coins_everywhere() {
     solutions: [
    //   "start:\nmove\nmove\nmove\nmove\nmove\nmove\nmove\nturn right\nmove\n" +
     //  "turn left\ngoto start\n"
-            "ΑΡΧΗ:\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\n" +
-      "ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n"
+            "START:\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΜΠΡΟΣΤΑ\n" +
+      "ΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΠΗΓΑΙΝΕ START\n"
     ],
     num_cols: 9,
     num_rows: 7,
@@ -4158,7 +4158,7 @@ function puzzle_get_unstuck() {
 
     solutions: [
       //"start: move\ngoto start\n",
-      	  "ΑΡΧΗ: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n",
+      	  "START: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ START\n",
     ],
     num_cols: 9,
     num_rows: 7,
@@ -4170,7 +4170,7 @@ function puzzle_get_unstuck() {
         cellX: 4,
         cellY: 4,
         facing: Direction.UP,
-        program: "ΑΡΧΗ: ΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n",
+        program: "START: ΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ START\n",
         //"start: turn right\ngoto start\n",
       },
     ],
@@ -4273,7 +4273,7 @@ function puzzle_spiral() {
     },
 
     solutions: [
-      "ΑΡΧΗ:\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ ΑΡΧΗt\n"
+      "START:\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ START\n"
       //"start:\nmove\nmove\nmove\nmove\nmove\nmove\nturn right\ngoto start\n"
     ],
     num_cols: 9,
@@ -4433,7 +4433,7 @@ function puzzle_the_square() {
     },
 
     solutions: [
-      "ΑΡΧΗ: ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ"
+      "START: ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΠΗΓΑΙΝΕ START"
       //"start: move\nmove\nmove\nmove\nturn right\ngoto start"
     ],
     num_cols: 9,
@@ -4501,7 +4501,7 @@ function puzzle_the_t() {
     },
 
     solutions: [
-       "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nΑΡΧΗ: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n",
+       "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΔΕΞΙΑ\nSTART: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ START\n",
        //"move\nmove\nmove\nturn right\nstart: move\ngoto start\n",
     ],
     num_cols: 9,
@@ -4514,7 +4514,7 @@ function puzzle_the_t() {
         cellX: 4,
         cellY: 5,
         facing: Direction.UP,
-        program: "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nΑΡΧΗ: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ ΑΡΧΗ\n",
+        program: "ΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΜΠΡΟΣΤΑ\nΣΤΡΙΨΕ ΑΡΙΣΤΕΡΑ\nSTART: ΜΠΡΟΣΤΑ\nΠΗΓΑΙΝΕ START\n",
         //"move\nmove\nmove\nturn left\nstart: move\ngoto start\n",
       },
     ],
