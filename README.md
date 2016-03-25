@@ -1,5 +1,7 @@
 Puzzlecode-gr : is an attempt(fork) to translate Puzzlecode instructions to Greek so elementary students can learn basic coding skills.
 
+<img src="puzzlecode.jpg" />
+
 Let's continue to the ORIGINAL readme.md and thanks to Mike Gagnon for his great work :)
 Puzzle Code
 ===========
