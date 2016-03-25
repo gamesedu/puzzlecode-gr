@@ -1,4 +1,5 @@
-Puzzlecode-gr : is an attempt(fork) to translate Puzzlecode instructions to Greek so elementary students can learn basic coding skills.
+Puzzlecode-gr : Μια προσπάθεια (fork) για να μεταφραστεί το Puzzlecode instructions στα Ελληνικά για χρήση σε σχολική τάξη.
+Σκοπός του Puzzlecode είναι η εκμάθηση βασικών εννοιών προγραμματισμού μέσα από το παιχνίδι.
 
 <img src="puzzlecode.jpg" />
 
